@@ -43,4 +43,4 @@ It uses Bootstrap 5.3.2 for styling.
 Make sure to include the necessary Bootstrap CDN in your HTML file.
 
 
-  <img src="./Animationcats.gif"  width="91%" height="600" />
+  <img src="./Animationcats.gif"  width="91%" height="700" />
