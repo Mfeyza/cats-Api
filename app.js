@@ -3,19 +3,20 @@ const loadingDiv = document.getElementById("loading");
 const btn = document.querySelector(".btn");
 const containerDiv = document.querySelector(".container");
 const tarih = document.getElementById("tarih");
-// window.addEventListener("load", () => {
-//     cardDiv.style.display = "none"
-//     loadingDiv.style.display = "block"
-// }, 3000)
-//* loading çalıştır
+
+ /* -------------------------------------------------------------------------- */
+ /*                              //*loading çalıştır                              */
+ /* -------------------------------------------------------------------------- */
 setTimeout(() => {
   loadingDiv.style.display = "none";
 }, 3000);
-//* verileri getir
+ /* -------------------------------------------------------------------------- */
+ /*                               //'verileri getir                               */
+ /* -------------------------------------------------------------------------- */
 let status=0
 let veri = "";
 const getImage = (() => {
-  fetch("https://api.thecatapi.com/v1/images/search?limit=10").then((res) => {
+  fetch("https://pokeapi.co/api/v2/pokemon/ditto").then((res) => {
     console.log(res)
     status=res.status;
     if(!res.ok) {
@@ -29,7 +30,9 @@ const getImage = (() => {
     show(data)
   })
   .catch((err) => containerDiv.innerHTML=`<img src="error.gif"/>`)
-//! resimleri yerleştir
+/* -------------------------------------------------------------------------- */
+/*                           //! resimleri yerleştir                          */
+/* -------------------------------------------------------------------------- */
   const show = ((catsShow) => {
     cardDiv.innerHTML=""
     catsShow.forEach((image) => {
@@ -44,10 +47,10 @@ const getImage = (() => {
   })
 });
 /* -------------------------------------------------------------------------- */
-/*                       buttona basınca resim değişsin                       */
+/*                       //?buttona basınca resim değişsin                       */
 /* -------------------------------------------------------------------------- */
 btn.addEventListener('click', () =>{
-    loadingDiv.style.display="noone"
+    loadingDiv.style.display="none"
     getImage()
     setTimeout(() => {
         cardDiv.innerHTML=`<img src="loading.gif"/>`
@@ -55,7 +58,7 @@ btn.addEventListener('click', () =>{
 })
 getImage()
 /* -------------------------------------------------------------------------- */
-/*                              tarihi belirleme                              */
+/*                              //'tarihi belirleme                              */
 /* -------------------------------------------------------------------------- */
 const outputDate=(()=>{
     let currentDate= new Date();
@@ -66,7 +69,7 @@ const outputDate=(()=>{
 })
 setInterval(outputDate, 1000)
 /* -------------------------------------------------------------------------- */
-/*                              window yuklenırken                             */
+/*                              //!window yuklenırken                             */
 /* -------------------------------------------------------------------------- */
     console.log("calıstı");
     containerDiv.style.display="none"
